@@ -14,7 +14,7 @@
 			<h1>登录记账APP</h1>
 		</div>
 		<div class="ui-content" role="main">
-			<form id="loginForm">
+			<form id="loginForm" onsubmit="javascript:return onSubmit();">
 				<div class="ui-field-contain">
 					<label for="username">帐号</label><input type="text" id="username" name="username" placeholder="用户名">
 				</div>
@@ -23,7 +23,7 @@
 				</div>
 				<div class="ui-field-contain">
 					<!--a href="" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-b" data-transition="slide">登录</a-->
-					<button data-theme="b" id="submit" type="submit">登录</button>
+					<a data-theme="b" id="submit" type="submit" class="ui-btn ui-btn-corner-all ui-shadow">登录</a>
 				</div>
 			</form>
 		</div>
@@ -95,6 +95,32 @@
 				<li><a href="#">项目4</a></li>
 				<li><a href="#">项目5</a></li>
 			</ul>
+			<table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Category</th>
+						<th>Money</th>
+					</tr>
+					<tbody>
+						<tr>
+							<td>2015-11-20 12:10</td>
+							<td>Lanch</td>
+							<td>20</td>
+						</tr>
+						<tr>
+							<td>2015-11-20 12:10</td>
+							<td>Lanch</td>
+							<td>20</td>
+						</tr>
+						<tr>
+							<td>2015-11-20 12:10</td>
+							<td>Lanch</td>
+							<td>20</td>
+						</tr>
+					</tbody>
+				</thead>
+			</table>
 		</div>
 		<div data-role="footer">
 			<h1>页脚3</h1>

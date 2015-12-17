@@ -1,4 +1,4 @@
-(function () {
+$(document).on("pageinit", "#index", function () {
 	// 
 //	alert("haha");
 	function _checkLogin(username, password) {
@@ -11,16 +11,22 @@
 		e.preventDefault();
 		var formData = $("#loginForm").serialize();
 		console.log(formData);
-		$.ajax({
+		var defer = $.ajax({
 			type: "POST",
-			url: "http://112.74.99.162:8088/index.php/family/login",
-			data: formData,
-			success: function(data, status) {
+			url: "http://localhost/family/index.php/family/login",
+			data: formData
+			/*success: function(data, status) {
 				alert($.trim(data));
 			},
 			error: function(data, status) {
 				alert(data + ": " + status);
-			}
+			}*/
+		});
+		defer.then(function (response) {
+			console.log(success);
+			$("#home").html(response);
+		}, function (error) {
+			console.log(error);
 		});
 	});
-})();
+};

@@ -8,8 +8,9 @@ $(document).on("pageinit", "#index", function () {
 
 	var submit = $('#submit');
 	submit.on("click", function(e) {
-		e.preventDefault();
-		var formData = $("#loginForm").serialize();
+		// e.preventDefault();
+		var that = $(this),
+				formData = $("#loginForm").serialize();
 		console.log(formData);
 		$.mobile.loading("show");
 		var defer = $.ajax({
@@ -25,10 +26,10 @@ $(document).on("pageinit", "#index", function () {
 		});
 		defer.then(function (response) {
 			console.log(response);
-		//	$("#home").find(".ui-content p").first().text(response);
-			$.mobile.loading("hide");
-			$.mobile.changePage("#home");
-			$("#home").show();
+			// $.mobile.loading("hide");
+			// $.mobile.changePage("#home");
+			// $("#home").show();
+			that.href = Constants.PROTOCAL+Constants.HOST+":"+Constants.PORT + "/family_web/index.html";
 		}, function (error) {
 			console.log("Error occured: ");
 			console.log(error);

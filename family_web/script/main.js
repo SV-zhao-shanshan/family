@@ -11,9 +11,10 @@ $(document).on("pageinit", "#index", function () {
 		e.preventDefault();
 		var formData = $("#loginForm").serialize();
 		console.log(formData);
+		$.mobile.loading("show");
 		var defer = $.ajax({
 			type: "POST",
-			url: "http://localhost/family/index.php/family/login",
+			url: Constants.PROTOCAL+Constants.HOST+":"+Constants.PORT+Constants.LOGIN_ACTION,
 			data: formData
 			/*success: function(data, status) {
 				alert($.trim(data));
@@ -23,10 +24,19 @@ $(document).on("pageinit", "#index", function () {
 			}*/
 		});
 		defer.then(function (response) {
-			console.log(success);
-			$("#home").html(response);
+			console.log(response);
+		//	$("#home").find(".ui-content p").first().text(response);
+			$.mobile.loading("hide");
+			$.mobile.changePage("#home");
+			$("#home").show();
 		}, function (error) {
+			console.log("Error occured: ");
 			console.log(error);
+			alert("Error: check your account/password!");
+			$.mobile.loading("hide");
+	//		$.mobile.changePage("#home");
+//			$("#home").find(".ui-content p").first().text(error);
+	//		$.mobile.loading("hide");
 		});
 	});
-};
+});

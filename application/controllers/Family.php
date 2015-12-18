@@ -26,6 +26,9 @@ class Family extends CI_Controller {
 				unset($data['password']);
 				$_COOKIE['userinfo'] = json_encode($data);
 				setcookie('userinfo', json_encode($data), time() + 3600*24*360);
+			} else {
+				unset($_COOKIE['userinfo']);
+				setcookie('userinfo', '', time() - 1);
 			}
 		}
 		$_COOKIE['isLogin'] = $isLogin;

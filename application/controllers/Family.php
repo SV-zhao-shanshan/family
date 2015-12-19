@@ -58,6 +58,41 @@ class Family extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function addCost() {
+		$input = $this->params;
+		$this->load->model('cost_model');
+		$userId = $input['user_id'];
+		$bookId = $input['book_id'];
+		$bookName = $input['book_name'];
+		$typeId = $input['type_id'];
+		$money = $input['money'];
+		$description = isset($input['description']) ? $input['description'] : '';
+		$res = $this->cost_model->add_cost($userId, $bookId, $bookName, $typeId, $money, $description);
+		if ($res == false) {
+			$output = array(
+				'errno' => 2,
+				'msg' => 'Error occured, please try again!',
+			);
+		} else {
+			$output = array(
+				'errno' => 0,
+				'msg' => 'Success',
+			);
+		}
+		echo json_encode($output);
+	}
+
+	public function getCost() {
+		$input = $this->params;
+		$this->load->model('cost_model');
+		$userId = $input['user_id'];
+		$bookId = $input['book_id'];
+		$startTime = $input['start_time'];
+		$endTime = $input['end_time'];
+		$data = $this->cost_model->get_cost($userId, $bookId, $startTime, $endTime);
+		echo json_encode($data);
+	}
+
 	public function login()
 	{
 		$output = array(

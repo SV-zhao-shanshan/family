@@ -1,7 +1,11 @@
 $(document).on("pageinit", "#index", function() {
-	function _checkLogin(username, password) {
-		var _name = username, _pass = password;
+	function _checkLogin() {
+		var _name = $("#username").val(),
+			_pass = $("#password").val();
 		alert(_name + "; " + _pass);
+		if(_name && _pass) return true;
+		return false;
+
 	}
 
 	var submit = $('#submit');
@@ -9,8 +13,9 @@ $(document).on("pageinit", "#index", function() {
 		// e.preventDefault();
 		var that = $(this),
 				formData = $("#loginForm").serialize();
-		
-		console.log(formData.username);
+		if(!_checkLogin()) {
+			alert(Constants.LOGIN_NOT_NULL);
+		}
 		console.log(formData);
 		$.mobile.loading("show");
 		var defer = $.ajax({
@@ -24,7 +29,7 @@ $(document).on("pageinit", "#index", function() {
 		}, function (error) {
 			console.log("Error occured: ");
 			console.log(error);
-			alert("Error: check your account/password!");
+			alert(Constants.LOGIN_ERROR);
 			$.mobile.loading("hide");
 	//		$.mobile.changePage("#home");
 		});

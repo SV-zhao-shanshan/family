@@ -20,7 +20,8 @@ $(document).on("pageinit", "#index", function() {
 		});
 		defer.then(function (response) {
 			console.log(response);
-			$.mobile.changePage("index.html");
+		//	$.mobile.changePage("index.html");
+			window.location.href=Constants.PROTOCAL+Constants.HOST+":"+Constants.PORT+"/family_web/index.html";
 		}, function (error) {
 			console.log("Error occured: ");
 			console.log(error);

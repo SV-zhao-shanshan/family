@@ -10,7 +10,7 @@ $(document).on("pageinit", "#index", function() {
 		var that = $(this),
 				formData = $("#loginForm").serialize();
 		
-		
+		console.log(formData.username);
 		console.log(formData);
 		$.mobile.loading("show");
 		var defer = $.ajax({

@@ -58,6 +58,19 @@ class Family extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function initCost() {
+		$input = $this->params;
+		$this->load->model('cost_model');
+		$userId = $input['user_id'];
+		$res = $this->cost_model->init_cost($userId);
+		$output = array(
+			'errno' => 0,
+			'msg' => 'Success',
+			'data' => $res,
+		);
+		echo json_encode($output);
+	}
+
 	public function addCost() {
 		$input = $this->params;
 		$this->load->model('cost_model');

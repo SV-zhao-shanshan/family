@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<title>家庭记账APP</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" href="./style/reset.css">
 	<link rel="stylesheet" href="./style/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="./style/reset.css">
+	<link rel="stylesheet" href="./style/main.css">
 </head>
 <body>
 	<!-- 登录页面 -->
@@ -31,12 +32,29 @@
 	<!-- 首页 -->
 	<div data-role="page" id="index">
 		<div data-role="header" data-position="fixed">
-			<h1>首页</h1>
+			<h1>主页</h1>
 		</div>
 		<div role="main" class="ui-content">
-			<p>内容1</p>
-			<p><a href="#newPage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-transition="slide">新建支出</a>
-			<a href="#list" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-transition="slide">列表页面</a></p>
+			<!-- 头部信息部分 -->
+			<div id="infoSec">内容1</div>
+			<!-- 新建支出按钮 -->
+			<a href="#newPage" class="ui-btn ui-btn-b ui-corner-all ui-shadow" data-transition="slide">记一笔</a>
+			<div id="summary" href="#list" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-transition="slide">列表页面
+				<ul class="list">
+					<li><a href="#">
+						今天 <span>12.55</span>
+					</a></li>
+					<li><a href="#">
+						本周 <span>12.55</span>
+					</a></li>
+					<li><a href="#">
+						本月 <span>12.55</span>
+					</a></li>
+					<li><a href="#">
+						本年 <span>12.55</span>
+					</a></li>
+				</ul>
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed" style="position:fixed;bottom:0;">
 			<div data-role="navbar">

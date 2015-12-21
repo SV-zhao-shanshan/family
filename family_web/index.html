@@ -36,25 +36,20 @@
 		</div>
 		<div role="main" class="ui-content">
 			<!-- 头部信息部分 -->
-			<div id="infoSec">内容1</div>
+			<div id="infoSec" class="ui-corner-all ui-shadow">内容1</div>
 			<!-- 新建支出按钮 -->
-			<a href="#newPage" class="ui-btn ui-btn-b ui-corner-all ui-shadow" data-transition="slide">记一笔</a>
-			<div id="summary" href="#list" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-transition="slide">列表页面
-				<ul class="list">
-					<li><a href="#">
-						今天 <span>12.55</span>
-					</a></li>
-					<li><a href="#">
-						本周 <span>12.55</span>
-					</a></li>
-					<li><a href="#">
-						本月 <span>12.55</span>
-					</a></li>
-					<li><a href="#">
-						本年 <span>12.55</span>
-					</a></li>
-				</ul>
-			</div>
+			<a id="addNew" href="#newPage" class="ui-btn ui-btn-b ui-corner-all ui-shadow" data-transition="slide">记一笔</a>
+			<ul id="summary" data-role="listview" data-inset="true">
+				<li><a href="#">
+					今天 <span>12.55</span>
+				</a></li>
+				<li><a href="#">
+					本周 <span>12.55</span>
+				</a></li>
+			<!--	<li><a href="#">
+					本月 <span>12.55</span>
+				</a></li>-->
+			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed" style="position:fixed;bottom:0;">
 			<div data-role="navbar">

@@ -1,3 +1,4 @@
 /* 主页样式 */
-#infoSec {height: 200px; background-color: #e44; border: 1px solid #444;}
-#summary {height: 200px; background-color: #d66; border: 1px solid green;}
+#infoSec {height: 200px; border: 1px solid gray;}
+#addNew {background-color: #e44; border: none; font-size:17px; margin: 50px 0;}
+#summary {margin: 10px 0;}

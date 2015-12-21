@@ -25,7 +25,7 @@ class Family extends CI_Controller {
 				$isLogin = '1';
 				unset($data['password']);
 				$_COOKIE['userinfo'] = json_encode($data);
-				setcookie('userinfo', json_encode($data), time() + 3600*24*360, '/', '112.74.99.162:8088');
+				setcookie('userinfo', json_encode($data), time() + 3600*24*360, '/', '112.74.99.162');
 			} else {
 				unset($_COOKIE['userinfo']);
 				setcookie('userinfo', '', time() - 1);
@@ -33,8 +33,10 @@ class Family extends CI_Controller {
 		}
 		$_COOKIE['isLogin'] = $isLogin;
 		if ($isLogin == '0') {
-			echo '{"errno":1,"msg":"Please login"}';
-			die();
+			header('Location: ' . 'http://112.74.99.162:8088/family_web/login.html', null, 302);
+			exit;
+			//echo '{"errno":1,"msg":"Please login"}';
+			//die();
 		}
 	}
 	/**

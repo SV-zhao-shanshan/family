@@ -33,9 +33,10 @@ class Family extends CI_Controller {
 		}
 		$_COOKIE['isLogin'] = $isLogin;
 		if ($isLogin == '0') {
-			header('Location: ' . 'http://112.74.99.162:8088/family_web/login.html', null, 302);
+			//header('Location: ' . 'http://112.74.99.162:8088/family_web/login.html', null, 302);
+			//exit;
+			echo '{"errno":1,"msg":"Please login"}';
 			exit;
-			//echo '{"errno":1,"msg":"Please login"}';
 			//die();
 		}
 	}

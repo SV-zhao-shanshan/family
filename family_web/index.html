@@ -36,7 +36,12 @@
 		</div>
 		<div role="main" class="ui-content">
 			<!-- 头部信息部分 -->
-			<div id="infoSec" class="ui-corner-all ui-shadow">内容1</div>
+			<div id="infoSec" class="ui-corner-all ui-shadow">
+				<fieldset class="ui-field-contain">
+					<label for="book">记账本</label><select id="book" name="book">
+					</select>
+				</fieldset>
+			</div>
 			<!-- 新建支出按钮 -->
 			<a id="addNew" href="#newPage" class="ui-btn ui-btn-b ui-corner-all ui-shadow" data-transition="slide">记一笔</a>
 			<ul id="summary" data-role="listview" data-inset="true">

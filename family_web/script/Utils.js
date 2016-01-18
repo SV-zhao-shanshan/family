@@ -21,9 +21,14 @@ var Utils = (function(window, document) {
 		}
 		return result;
 	}
-
+	
+	function setBookInfo(bookinfo) {
+		localStorage.setItem("book_id", bookinfo.book_id);
+		localStorage.setItem("book_name", bookinfo.book_name);
+	}
 	return {
 		checkLogin: checkLogin,
-		getCookie: getCookie
+		getCookie: getCookie,
+		setBookInfo: setBookInfo
 	};
 })(window, document);

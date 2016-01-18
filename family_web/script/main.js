@@ -11,6 +11,7 @@ $(document).on("pageinit", "#index", function () {
 
 //	Utils.checkLogin();
 
+	var user_id = localStorage.getItem("user_id");
 	function getBookInfo() {
 		var defer = $.ajax({
 			type: "GET",
@@ -24,9 +25,21 @@ $(document).on("pageinit", "#index", function () {
 				book_list = res.data.book_list,
 				type_list = res.data.type_list;
 			console.log(res);
-			for(var i=0,l=book_list.length;i<l;i++) {
-				console.log(book_list[i]);
+			if(book_list.length > 0) {
+				Utils.setBookInfo(book_list[0]);
 			}
+			var book = $("#book"), bookOps = "";
+			for(var i=0,l=book_list.length;i<l;i++) {
+				var name = book_list[i].book_name,
+					id = book_list[i].book_id;
+				bookOps += "<option value='" + name + "' id='" + id + "'";
+				if(i == 0) {
+					bookOps += "' selected>";
+				} else {
+					bookOps += "'>" + name + "</option>";
+				}
+			}
+			book.html(bookOps);
 			var types = $("#type"), ops = "";
 			for(i=0,l=type_list.length;i<l;i++) {
 				console.log(type_list[i]);
@@ -46,6 +59,8 @@ $(document).on("pageinit", "#index", function () {
 	getBookInfo();
 	
 	$("#addNew").tap(function(evt) {
+		var params = {user_id: user_id, book_id: localStorage.getItem("book_id"), book_name: localStorage.getItem("book_name"),type_id:$("#type-button").find("span").text(), money:$("#amount").value, description:$("#description").text()};
+
 		var request = $.ajax({
 			type:"POST",
 			url: Constants.PROTOCAL + Constants.HOST + Constants.PORT + Constants.ADDRECORD,
